@@ -22,24 +22,22 @@ root = Tk()
 
 root.title("Youtube Downloader")
 root.geometry('800x400+610+153')
-
+root.config(bg='red')
 root.iconbitmap(default="")
 root.resizable(width=1, height=1)
 
 background = PhotoImage(file=r"Python\Yt downloader\img\botao.png")
-botao = PhotoImage(file=r"Python\Yt downloader\img\botao.png")
+botao = PhotoImage(file=r"D:\Downloads (D)\Python-Aulas\Python\Yt downloader\img\botao.png")
 
-labelFundo = Label(root, image=background)
-labelFundo.pack()
+Label(root, text="Download Video", fg='white', bg='red').grid(row=1, column=2, padx=10)
 
+userUrl = Entry(root)
+userUrl.insert(0, "url...")
+userUrl.grid(row=2, column=2)
 
-# userUrl = Entry(root)
-# userUrl.insert(0, "url...")
-# userUrl
+userUrl.bind("<FocusIn>", temporaryTxtDel)
+userUrl.bind("<FocusOut>", temporaryTxtAdd)
 
-# userUrl.bind("<FocusIn>", temporaryTxtDel)
-# userUrl.bind("<FocusOut>", temporaryTxtAdd)
-
-# Button(root, text="Download Video", command=downloader, bg="black", fg="white")
+Button(root, text="Download Video", command=downloader, bg="black", fg="white").grid(row=3, column=2)
 
 root.mainloop()
